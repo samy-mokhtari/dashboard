@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Dashboard</title>
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">🛠️ Freelance Dashboard</h1>
+        <div class="space-y-4">
+            {% for task in tasks %}
+            <div class="bg-white shadow rounded-lg p-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-xl font-semibold">{{ task.title }}</h2>
+                        <p class="text-sm text-gray-500">{{ task.description or '' }}</p>
+                        <p class="text-xs text-gray-400">Phase : {{ task.phase or 'non définie' }} | Statut : {{ task.status }}</p>
+                    </div>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">{{ task.status }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
